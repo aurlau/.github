@@ -1,0 +1,1 @@
+name: python-ci on: workflow_call jobs: test: runs-on: ubuntu-latest steps: - uses: actions/checkout@v4 - uses: actions/setup-python@v5 with: python-version: '3.11' - name: Install run: pip install -U pip ruff mypy pytest && pip install -e . - name: Lint run: ruff check . - name: Type-check run: mypy . - name: Tests run: pytest -q
